@@ -2,11 +2,9 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-require 'pg'
-require 'capybara'
-require 'rspec'
-require 'sinatra'
+gem 'pg'
+gem 'capybara'
+gem 'rspec'
+gem 'sinatra'
 
 # gem "rails"
