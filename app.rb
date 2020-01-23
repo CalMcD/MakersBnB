@@ -8,7 +8,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/listings' do
-    @listings = Viewlist.all
+    @listings = Listings.all
     erb :viewing_listings
   end
 
@@ -17,7 +17,7 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/' do
-    Add_listing.add(params[:place_name], params[:ppn], params[:guests], params[:description])
+    Listings.add(params[:place_name], params[:ppn], params[:guests], params[:description])
     redirect('/')
   end
 
