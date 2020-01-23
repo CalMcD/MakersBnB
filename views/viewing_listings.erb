@@ -1,1 +1,15 @@
 <h1> Available Places </h1>
+
+<ul>
+  <% @listings.each do |x| %>
+  -------------------------------<br>
+    <%= x['place_name']%><br>
+    <%= x['ppn']%><br>
+    <%= x['guests']%><br>
+    <%= x['description']%><br>
+    <form action="/book_now" method="post">
+      <input type="submit" value="Book Now" />
+    </form>
+  <% end %>
+  ------------------------------
+</ul>
