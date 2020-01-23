@@ -1,2 +1,2 @@
-feature 'adding a new listing' do
-  scenario ' '
+# feature 'adding a new listing' do
+#   scenario ' '

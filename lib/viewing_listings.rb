@@ -2,8 +2,12 @@ require 'pg'
 
 class Viewlist
   def self.all
-    connection = PG.connect(dbname: 'makersbnb')
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
     result = connection.exec("SELECT * FROM listings;")
-    result.map 
+    result.map
   end
 end
