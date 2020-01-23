@@ -20,5 +20,16 @@ class Makersbnb < Sinatra::Base
     redirect('/')
   end
 
+  post '/book_now' do
+    Booking.new(params[:booking])
+    redirect('/book_now')
+  end
+
+  get '/book_now' do
+    erb :booking
+  end
+
+
+
   run! if app_file == $0
 end
