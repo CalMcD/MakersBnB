@@ -16,7 +16,7 @@ class Listings
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-      connection.exec("INSERT INTO listings (place_name, ppn, guests, description) VALUES('#{place_name}', '#{ppn}', '#{guests}', '#{description}')")
+      connection.exec("INSERT INTO listings (place_name, ppn, guests, description) VALUES('#{place_name}', '#{ppn}', '#{guests}', '#{description}');")
     end
 
 end
