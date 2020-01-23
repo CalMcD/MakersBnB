@@ -6,9 +6,9 @@ describe Listings do
 
     listings = Listings.all
 
-    expect(listings).to include "A really nice house"
-    expect(listings).to include "200"
-    expect(listings).to include "5"
-    expect(listings).to include "This house is nice"
+    expect(listings.getvalue(0,2)).to include "A really nice house"
+    expect(listings.getvalue(0,3)).to include "200"
+    expect(listings.getvalue(0,4)).to include "5"
+    expect(listings.getvalue(0,5)).to include "This house is nice"
   end
 end
