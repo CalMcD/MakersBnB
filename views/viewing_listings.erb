@@ -5,8 +5,7 @@
   -------------------------------<br>
     <%= "House name / Address: #{x['place_name']} "%><br>
     <%= "Price per night: £#{x['ppn']}"%><br>
-    <%= "Maximum number of guests: #{x['guests']}"%><br>
-    <%= "Description: #{x['description']}"%><br><br>
+    <%= "Maximum number of guests: #{x['guests']}"%><br><br>
     <form action="/book_now" method="post">
       <button type="submit" value="<%= x['place_name'] %>" name="booking"> Book Now</button>
     </form>

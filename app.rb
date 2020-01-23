@@ -1,5 +1,6 @@
 require 'sinatra'
 require './lib/listings'
+require './lib/booking'
 
 class Makersbnb < Sinatra::Base
 
@@ -28,7 +29,7 @@ class Makersbnb < Sinatra::Base
 
   get '/book_now' do
     @place = $place
-    p @place
+    @info = Booking.query(@place)
     erb :booking
   end
 
