@@ -1,5 +1,5 @@
 require 'sinatra'
-require './lib/add_listing'
+require './lib/listings'
 
 class Makersbnb < Sinatra::Base
 
@@ -8,6 +8,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/listings' do
+    @listings = Viewlist.all
     erb :viewing_listings
   end
 
