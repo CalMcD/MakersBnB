@@ -22,11 +22,13 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/book_now' do
-    Booking.new(params[:booking])
+    $place = (params[:booking])
     redirect('/book_now')
   end
 
   get '/book_now' do
+    @place = $place
+    p @place
     erb :booking
   end
 

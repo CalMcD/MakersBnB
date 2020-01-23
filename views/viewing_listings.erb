@@ -3,12 +3,12 @@
 <ul>
   <% @listings.each do |x| %>
   -------------------------------<br>
-    <%= x['place_name']%><br>
-    <%= x['ppn']%><br>
-    <%= x['guests']%><br>
-    <%= x['description']%><br>
+    <%= "House name / Address: #{x['place_name']} "%><br>
+    <%= "Price per night: £#{x['ppn']}"%><br>
+    <%= "Maximum number of guests: #{x['guests']}"%><br>
+    <%= "Description: #{x['description']}"%><br><br>
     <form action="/book_now" method="post">
-      <input type="submit" value="Book Now" />
+      <button type="submit" value="<%= x['place_name'] %>" name="booking"> Book Now</button>
     </form>
   <% end %>
   ------------------------------
