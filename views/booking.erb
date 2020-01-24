@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Make Booking - Default functionality</title>
 
-  <% @info.each do |x| %>
-  -------------------------------<br>
-    <%= "The" %>
-    <%= ["beautiful", "lovely", "scenic", "extravagent"].sample %>
-    <%= "#{x['place_name']}" %><br>
-    <%= "Sleeps #{x['guests']} guests"%><br>
-    <%= "#{x['description']}"%><br>
-    -------------------------------<br><br>
-
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Datepicker - Default functionality</title>
@@ -34,8 +25,22 @@
   <div class="header">
     <a href='/' id="logo"> <img class=logo src="/Images/logo.png"> </a>
   </div>
-</div>
 
+  <h1> Book your place now! </h1>
+    
+  <div class= description>
+
+    <% @info.each do |x| %>
+  -------------------------------<br>
+    <%= "The" %>
+    <%= ["beautiful", "lovely", "scenic", "extravagent"].sample %>
+    <%= "#{x['place_name']}" %><br>
+    <%= "Sleeps #{x['guests']} guests"%><br>
+    <%= "#{x['description']}"%><br>
+    -------------------------------<br><br>
+  </div>
+
+<div class= "userinput">
 
 <form action='/confirm_booking' method='post'>
 Book from date: <input type="text" id="datepicker" name="start_date"><br><br>
@@ -43,13 +48,15 @@ Number of nights: <input type="text" name="nights"> @ £<%= x['ppn'] %> per nigh
 
 <% @booking_info.each do |x| %>
 
-
 The above property is currently unavailable from <%= x['start_date'] %> for <%= x['nights'] %> night(s).<br><br>
 
 <% end %>
-<button type="submit"> Submit </form>
-</body>
+</div>
 
+<button type="submit" class="button"> Submit </form>
+
+</div>
+</body>
 </html>
 
 <style>
@@ -85,4 +92,37 @@ The above property is currently unavailable from <%= x['start_date'] %> for <%= 
         padding: 10px;
         width: 15%;
       }
+
+      .description {
+        margin-left: 11.5%;
+        font-size: 120%;
+      }
+
+      .userinput{
+        margin-left: 11.5%;
+        font-size: 120%;
+
+      }
+      .button{
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        color: #2196f3;
+        background-color: #f1f1f1;
+        padding: 10px;
+        flex: 1;
+        transition: all .3s;
+        opacity: 0.8;
+        transition-duration: 0.4s;
+        margin-right: 30%;
+      }
+
+      .button:hover,
+      .button:focus,
+      .button:active {
+        background-color: #2196f3;
+        color: #fff;
+      }
+
 </style>
