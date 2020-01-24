@@ -30,12 +30,13 @@
 
 <form action='/confirm_booking' method='post'>
 Book from date: <input type="text" id="datepicker" name="start_date"><br><br>
- Number of nights: <input type="text" name="nights" > @ £<%= x['ppn'] %> per night.<br><br>
-  <button type="submit"> Confirm booking
-</form>
+Number of nights: <input type="text" name="nights"> @ £<%= x['ppn'] %> per night.<br><br><% end %>
+
+<% @booking_info.each do |x| %>
 
 
+The above property is currently unavailable from <%= x['start_date'] %> for <%= x['nights'] %> night(s).<br><br>
 
 <% end %>
-
+<button type="submit"> Submit </form>
 </body>

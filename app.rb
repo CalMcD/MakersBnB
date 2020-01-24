@@ -32,6 +32,7 @@ class Makersbnb < Sinatra::Base
     @info = Booking.query(@place)
     p @info
     $ppn = @info.getvalue(0,3)
+    @booking_info = Booking.existing_bookings(@place)
     erb :booking
   end
 
