@@ -27,11 +27,14 @@
   </script>
 </head>
 <body>
-<form action='/confirm_booking' action='post'
-<p>Book from date: <input type="text" id="datepicker" name="start_date"></p>
-<p>Number of nights: <input type="text" name="nights" > @ £<%= x['ppn'] %> per night.<br><br>
+
+<form action='/confirm_booking' method='post'>
+Book from date: <input type="text" id="datepicker" name="start_date"><br><br>
+ Number of nights: <input type="text" name="nights" > @ £<%= x['ppn'] %> per night.<br><br>
   <button type="submit"> Confirm booking
 </form>
+
+
 
 <% end %>
 

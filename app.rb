@@ -30,10 +30,31 @@ class Makersbnb < Sinatra::Base
   get '/book_now' do
     @place = $place
     @info = Booking.query(@place)
+    p @info
+    $ppn = @info.getvalue(0,3)
     erb :booking
   end
 
+  post '/confirm_booking' do
+    $start_date = (params[:start_date])
+    $nights = (params[:nights])
+    redirect('/confirm_booking')
+  end
 
+  get '/confirm_booking' do
+    @place = $place
+    @nights = $nights
+    @start_date = $start_date
+    @ppn = $ppn
+    erb :confirm_booking
+  end
 
+  get '/confirmed' do
+    @place = $place
+    @nights = $nights
+    @start_date = $start_date
+    Booking.add($place, $start_date, $nights)
+    erb:confirmed
+  end
   run! if app_file == $0
 end

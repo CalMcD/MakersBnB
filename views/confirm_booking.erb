@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head> Please confirm your booking </head><br>
+
+<body> You have requested to book <%= @place %> from <%= @start_date %> for <%= @nights %> nights. The full cost of your booking is £<%= @ppn.to_i * @nights.to_i %> </body><br>
+
+<form action='/confirmed' method='get'>
+  <button type='submit'> Confirm booking now
+</form>
