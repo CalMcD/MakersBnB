@@ -1,16 +1,120 @@
 <!DOCTYPE HTML>
 <html>
-<head><h1> Add a new listing to MakersBNB!</h1> <head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Listing - Default functionality</title>
+</head>
 
-<body> <h2> Please enter your information below </h2>
-
-<form action='/' method='post'>
+<body>
+<div class="bg">
+  <div class="header">
+    <a href='/' id="logo"> <img class=logo src="/Images/logo.png"> </a>
+  </div>
+        <h1> Add a new listing to MakersBNB!</h1> 
+  
+  <div class='text'>
+  <h2> Please enter your information below </h2>
+  <form action='/' method='post'>
   <h4> Place name / address: <input type='text' name='place_name'><br><br>
-       Price per night: <input type='number' name='ppn'><br><br>
+       Price per night: <input type='number' opacity="0.7" name='ppn'> <br><br>
        Maximum number of guests: <input type='number' name='guests'><br><br>
-       Description: <input type='text' name='description'><br><br><br>
-       <button type='submit'> Submit new listing now </h4>
-
+       Description: <br><textarea name="description" form="usrform"></textarea><br>
+       <button class="button"type='submit'> Submit new listing now </h4>
+      </div>
+      
+  </form>
+  </div>
 
 </body>
+
 </html>
+
+<style>
+
+      h1 {
+        text-align: center;  
+        color: black;
+      }
+
+
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+
+      .bg {
+        background-image: url('/Images/coastview2.png');
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .header {
+        background-color: #f1f1f1;
+        opacity: 0.7
+      }
+
+      .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        width: 15%;
+      }
+
+      .text {
+        margin-left: 11.5%;
+        font-size: 120%;
+      }
+     
+      .button {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        color: #2196f3;
+        background-color: #f1f1f1;
+        padding: 10px;
+        flex: 1;
+        transition: all .3s;
+        opacity: 0.7;
+        transition-duration: 0.4s;
+      }
+
+      .button:hover,
+      .button:focus,
+      .button:active {
+        background-color: #2196f3;
+        color: #fff;
+      }
+      textarea {
+        width: 30%;
+        height: 50px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: vertical;
+        overtflow: auto;
+        opacity: 0.7;
+      }
+
+  input[type=text] {
+  width: 15%;
+  display: inline-block;
+  border-radius: 0px;
+  box-sizing: border-box;
+  opacity: 0.7;
+}
+
+input[type=number] {
+  width: 15%;
+  display: inline-block;
+  border-radius: 0px;
+  box-sizing: border-box;
+  opacity: 0.7;
+}
+</style>
