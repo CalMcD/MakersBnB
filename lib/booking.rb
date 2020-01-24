@@ -11,7 +11,6 @@ class Booking
     connection.exec("SELECT * FROM listings WHERE place_name='#{place_name}';")
   end
 
-<<<<<<< HEAD
   def self.existing_bookings(place_name)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
@@ -21,10 +20,7 @@ class Booking
     connection.exec("SELECT * FROM bookings WHERE place_name='#{place_name}'")
   end
 
-  def self.add(place_name, start_date, nights)
-=======
   def self.add(place_name, start_date, nights, ppn)
->>>>>>> branch3
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
     else
