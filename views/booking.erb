@@ -1,6 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head><h1> Make your booking now! </h1><head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make Booking - Default functionality</title>
 
   <% @info.each do |x| %>
   -------------------------------<br>
@@ -11,9 +14,7 @@
     <%= "#{x['description']}"%><br>
     -------------------------------<br><br>
 
-
-<head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Datepicker - Default functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -26,7 +27,15 @@
   } );
   </script>
 </head>
+
 <body>
+
+<div class="bg">
+  <div class="header">
+    <a href='/' id="logo"> <img class=logo src="/Images/logo.png"> </a>
+  </div>
+</div>
+
 
 <form action='/confirm_booking' method='post'>
 Book from date: <input type="text" id="datepicker" name="start_date"><br><br>
@@ -40,3 +49,40 @@ The above property is currently unavailable from <%= x['start_date'] %> for <%= 
 <% end %>
 <button type="submit"> Submit </form>
 </body>
+
+</html>
+
+<style>
+
+      h1 {
+        text-align: center;  
+        color: black;
+      }
+
+
+      body, html {
+        height: 100%;
+        margin: 0;
+      }
+
+      .bg {
+        background-image: url('/Images/coastview2.png');
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .header {
+        background-color: #f1f1f1;
+        opacity: 0.7
+      }
+
+      .logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+        width: 15%;
+      }
+</style>
