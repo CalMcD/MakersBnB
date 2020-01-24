@@ -1,0 +1,11 @@
+<ul>
+  <% @requests.each do |x| %>
+  -------------------------------<br>
+    <%= "You have received a request to rent your property #{x['place_name']} for #{x['nights']} nights, starting on #{x['start_date']}. You will receive £"%> <%= x['ppn'].to_i * x['nights'].to_i %><br>
+
+    <form action="/confirm_request" method="post">
+      <button type="submit" value="<%= x['id'] %>" name="confirmation"> Accept Request</button>
+    </form>
+  <% end %>
+  ------------------------------
+</ul>

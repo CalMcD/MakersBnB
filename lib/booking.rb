@@ -8,9 +8,10 @@ class Booking
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-    connection.exec("SELECT * FROM listings WHERE place_name='#{place_name}'")
+    connection.exec("SELECT * FROM listings WHERE place_name='#{place_name}';")
   end
 
+<<<<<<< HEAD
   def self.existing_bookings(place_name)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
@@ -21,16 +22,35 @@ class Booking
   end
 
   def self.add(place_name, start_date, nights)
+=======
+  def self.add(place_name, start_date, nights, ppn)
+>>>>>>> branch3
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
     else
       connection = PG.connect(dbname: 'makersbnb')
     end
-    ppn = connection.exec("SELECT ppn FROM listings WHERE place_name='#{place_name}'")
-    p start_date
-    p nights
-    ppn = ppn.getvalue(0,0)
-    result = connection.exec("INSERT INTO bookings(place_name, start_date, nights) VALUES ('#{place_name}', '#{start_date}', '#{nights}')")
+    result = connection.exec("INSERT INTO requests(place_name, start_date, nights, ppn) VALUES ('#{place_name}', '#{start_date}', '#{nights}', #{ppn});")
+  end
+
+  def self.requests
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+    result = connection.exec("SELECT * FROM requests;")
+  end
+
+  def self.confirm(booking)
+    p booking
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+    connection.exec("INSERT INTO bookings(place_name, nights, ppn, start_date) SELECT place_name, nights, ppn, start_date FROM requests WHERE id='#{booking.to_i}';")
+    connection.exec("DELETE FROM requests WHERE id='#{booking.to_i}';")
   end
 
 
